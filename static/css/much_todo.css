@@ -67,10 +67,6 @@ body{
 	right: 0;
 }
 
-.alternate{
-	background-color: #EBF4FA;
-}
-
 .todo-item{
 	height: 30px;
 	width: 100%;
