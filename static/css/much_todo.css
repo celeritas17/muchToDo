@@ -32,14 +32,13 @@ body{
 
 #add_todo{
 	height: 75px;
-	float: left;
+
 	width: 450px;
   overflow: hidden;
 }
 
 #todos_list, #items{
-	height: 450px;
-	border-bottom: 1px dashed gray;
+	height: auto;
 	position: relative;
 	padding: 0;
 	margin:0;
@@ -50,6 +49,7 @@ body{
 	height: 50px;
 	position: relative;
 	float: bottom;
+	border-top: 1px dashed gray;
 }
 
 .stats{
