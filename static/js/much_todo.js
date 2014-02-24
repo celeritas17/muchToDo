@@ -1,4 +1,10 @@
-var ToDo = Backbone.Model.extend({
+var ToDoApp = new (Backbone.View.extend({
+	Models: {},
+	Views: {},
+	Collections:{}
+}))();
+
+ToDoApp.Models.ToDo = Backbone.Model.extend({
 	urlRoot: '/muchtodo/todos',
 	defaults: function(){
 		return {
@@ -7,12 +13,12 @@ var ToDo = Backbone.Model.extend({
 		}
 	}, 
 	toggleComplete: function(){
-		this.set({'complete': this.get('complete') === true ? false : true});
+		this.set({'complete': !this.get('complete')});
 		this.save();
 	}
 });
 
-var ToDoView = Backbone.View.extend({
+ToDoApp.Views.ToDoView = Backbone.View.extend({
 	initialize: function(){
     _.bindAll(this, 'render', 'remove');
     this.model.bind('change', this.render);
@@ -40,15 +46,15 @@ var ToDoView = Backbone.View.extend({
 	}
 });
 
-var ToDoList = Backbone.Collection.extend({
-	model: ToDo,
+ToDoApp.Collections.ToDoList = Backbone.Collection.extend({
+	model: ToDoApp.Models.ToDo,
 	url: '/muchtodo/todos',
 	parse: function(response){
 		return response.todos
 	}
 });
 
-var ToDoListView = Backbone.View.extend({
+ToDoApp.Views.ToDoListView = Backbone.View.extend({
 	initialize: function(){
 		_.bindAll(this, 'render', 'addOne', 'addAll');
     this.collection.bind('add', this.addOne);
@@ -59,7 +65,7 @@ var ToDoListView = Backbone.View.extend({
 		this.addAll();
 	},
 	addOne: function(todo){
-		var todoView = new ToDoView({model: todo});
+		var todoView = new ToDoApp.Views.ToDoView({model: todo});
 		this.$el.append(todoView.render().el);
 		todo.save();
 	}, 
@@ -68,9 +74,24 @@ var ToDoListView = Backbone.View.extend({
 	}
 });
 
-var todoList = new ToDoList();
-todoList.fetch();
-var todoListView = new ToDoListView({collection: todoList});
-todoListView.render();
+ToDoApp.App = new (Backbone.Router.extend({
+	routes: {'': 'index'},
+	initialize: function(){
+		this.todoList = new ToDoApp.Collections.ToDoList();
+		this.todoListView = new ToDoApp.Views.ToDoListView({collection: this.todoList});
+		//this.todoListView.render();
+	},
+	start: function(){
+		Backbone.history.start({pushState: true});
+	},
+	index: function(){
+		this.todoList.fetch();	
+	}
+}));
+
+$(function(){
+	ToDoApp.App.start();
+});
+
 
 
