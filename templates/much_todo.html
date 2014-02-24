@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Much ToDo</title>
+		<link rel="shortcut icon" href="{{url_for('static', filename='favicon.ico')}}" />
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/bootstrap.min.css')}}">
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/much_todo.css')}}">
+	</head>
+	<body>
+		<div id="much_todo">
+			<div id="title_board">
+				<h1 id="title">Todos</h1>
+			</div>
+			<div id="add_todo">
+				<form>
+					<button class="btn">Add ToDo</button>
+					<input type="text" placeholder="What needs to be done?" class="input-large todo-input">
+				</form>
+			</div>
+			<div id="todos">
+				<div id="todos_list">
+					<ul id="items">
+					</ul>
+					<br /><br /><br /><br />
+				</div>
+			</div>
+			<div id="todo_info">
+				<div id="todos_left" class="stats">2 items left</div>
+				<div id="mark_complete" class="stats"><a href="#">Mark all as complete</a></div>
+			</div>
+		</div>
+		<script type="text/template" id="todo-template">
+			<input class='status' type='checkbox' <% if (complete) print('checked') %>>
+			<li class='todo-text<% if (complete) print(" complete")%>'><%= todo %></li>
+			<a href="#"><i>x</i></a>
+		</script>
+		<script type="text/javascript" src="{{url_for('static', filename='js/jquery-1.11.0.min.js')}}"></script>
+		<script type="text/javascript" src="{{url_for('static', filename='js/underscore.js')}}"></script>
+		<script type="text/javascript" src="{{url_for('static', filename='js/backbone.js')}}"></script>
+		<script type="text/javascript" src="{{url_for('static', filename='js/much_todo.js')}}"></script>
+	</body>
+</html>

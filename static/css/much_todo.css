@@ -1,0 +1,139 @@
+*{
+			box-sizing: border-box;
+}
+
+body{
+  font-style: bold;
+  word-wrap: break-word;
+  font-family:"Helvetica Neue", Helvetica, "Hiragino Sans GB", Arial, sans-serif;
+}
+
+#much_todo{
+	width: 450px;
+	text-align: left;
+	margin: 10px auto 20px auto;
+	background-color: #fff;
+	border-radius: 5px;
+	border: 1px solid #d3d3d3;
+}
+
+#title_board{
+	float: left;
+	height: 125px;
+	width: 450px;
+	text-align: center;
+	position: relative;
+	border-bottom: 1px dashed gray;
+}
+
+#title{
+	margin-top: 10%;
+}
+
+#add_todo{
+	height: 75px;
+	float: left;
+	width: 450px;
+  overflow: hidden;
+}
+
+#todos_list, #items{
+	height: 450px;
+	border-bottom: 1px dashed gray;
+	position: relative;
+	padding: 0;
+	margin:0;
+	width: 100%;
+}
+
+#todo_info{
+	height: 50px;
+	position: relative;
+	float: bottom;
+}
+
+.stats{
+	position: absolute;
+	bottom:0;
+	margin: 20px;
+	color: gray;
+}
+
+#todos_left{
+	float: left;
+}
+
+#mark_complete{
+	right: 0;
+}
+
+.alternate{
+	background-color: #EBF4FA;
+}
+
+.todo-item{
+	height: 30px;
+	width: 100%;
+	position: relative;
+}
+.status{
+	position: absolute;
+	left:20px;
+	top: 5px;
+}
+
+.todo-text{
+	position: absolute;
+	left: 40px;
+	display: block;
+	top:5px;
+}
+
+.complete{
+	color: #bbb;
+	text-decoration: line-through;
+}
+
+a, a:hover{
+	text-decoration: none;
+}
+
+span {
+  display: block;
+  overflow: hidden;
+  padding-right:10px;
+}
+
+button{
+	height: 35px;
+	width: 125px;
+	border-radius: 5px;
+	font-weight: bold;
+	margin-right: 15px;
+	margin-top: 15px;
+	float: right;
+}
+
+.todo-input{
+	color: gray;
+	width: 63%;
+	border-radius: 5px;
+	margin-top: 15px;
+	margin-left: 15px;
+	height: 35px !important;
+	position:relative;
+	z-index: 1;
+}
+
+span:nth-child(odd){
+	background-color: #EBF4FA;
+}
+
+i {
+	float: right;
+	color: gray;
+}
+
+
+
+
