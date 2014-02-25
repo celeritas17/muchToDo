@@ -1,9 +1,7 @@
 from flask import Flask, views, abort, jsonify, request, render_template
 app = Flask(__name__)
 
-todos = [
-	{'id': 1, 'todo': 'Win Forever', 'complete': False}, 
-]
+todos = []
 
 todo_count = len(todos)
 
