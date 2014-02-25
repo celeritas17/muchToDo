@@ -5,9 +5,9 @@ A Backbone.js ToDo app with a RESTful Flask backend
 
 2.  Clone the repository.
 
-3.  Run
+3.  Start the Flask app:
 
-			python much_todo.py
+         python much_todo.py
 
 
 4.  Point you browser to localhost:5000
