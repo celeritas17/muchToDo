@@ -20,7 +20,7 @@ ToDoApp.Models.ToDo = Backbone.Model.extend({
 
 ToDoApp.Views.ToDoView = Backbone.View.extend({
 	initialize: function(){
-    _.bindAll(this, 'render', 'remove');
+		_.bindAll(this, 'render', 'remove');
     this.model.bind('change', this.render);
     this.model.bind('destroy', this.remove);
   },
