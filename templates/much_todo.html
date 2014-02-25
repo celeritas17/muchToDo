@@ -33,7 +33,7 @@
 		<script type="text/template" id="add-todo-template">
 			<form>
 				<button class="btn">Add ToDo</button>
-				<input name="todo" type="text" placeholder="<%= todo %>" class="input-large todo-input">
+				<input name="todo" maxlength="50" type="text" placeholder="<%= todo %>" class="input-large todo-input">
 			</form>
 		</script>
 		<script type="text/javascript" src="{{url_for('static', filename='js/jquery-1.11.0.min.js')}}"></script>
